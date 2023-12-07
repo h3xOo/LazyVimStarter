@@ -26,7 +26,6 @@ return {
     {
         'echanovski/mini.pairs', enabled = false
     },
-
     {
         'echanovski/mini.surround', enabled = false
     },

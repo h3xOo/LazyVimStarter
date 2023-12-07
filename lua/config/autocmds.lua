@@ -1,8 +1,3 @@
--- Autocmds are automatically loaded on the VeryLazy event
--- Default autocmds that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
--- Add any additional autocmds here
-
-
 local templates_path = vim.fn.stdpath('config') .. '/templates'
 local tex_template = templates_path .. '/skeleton.tex'
 
@@ -30,7 +25,7 @@ autocmd(
     { pattern = 'ssa', command = 'syntax off' }
 )
 
-vim.api.nvim_create_autocmd("FileType", {
+vim.api.nvim_create_autocmd('FileType', {
 	pattern = { '*' },
 	callback = function()
 		vim.wo.conceallevel = 0

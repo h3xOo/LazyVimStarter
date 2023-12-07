@@ -1,5 +1,5 @@
 return {
-    "hrsh7th/nvim-cmp",
+    'hrsh7th/nvim-cmp',
     dependencies = {
         {
             'L3MON4D3/LuaSnip',
@@ -19,23 +19,23 @@ return {
     },
     event = { 'InsertEnter', 'CmdlineEnter' },
     opts = function()
-        local cmp = require("cmp")
-        local defaults = require("cmp.config.default")()
+        local cmp = require('cmp')
+        local defaults = require('cmp.config.default')()
         return {
             completion = {
-                completeopt = "menu,preview,noinsert",
+                completeopt = 'menu,preview,noinsert',
             },
             performance = {
                 max_view_entries = 30,
             },
             snippet = {
                 expand = function(args)
-                    require("luasnip").lsp_expand(args.body)
+                    require('luasnip').lsp_expand(args.body)
                 end,
             },
             mapping = cmp.mapping.preset.insert({
-                ["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
-                ["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
+                ['<C-n>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
+                ['<C-p>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
                 ['<C-d>'] = cmp.mapping.scroll_docs(-4),
                 ['<C-f>'] = cmp.mapping.scroll_docs(4),
                 ['<C-Space>'] = cmp.mapping.complete(),
@@ -44,24 +44,24 @@ return {
                 ['<S-CR>'] = cmp.mapping.confirm({
                     behavior = cmp.ConfirmBehavior.Replace,
                     select = true,
-                }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+                }),
                 ['<C-CR>'] = function(fallback)
                     cmp.abort()
                     fallback()
                 end,
             }),
             sources = cmp.config.sources({
-                { name = "nvim_lsp" },
-                { name = "luasnip" },
+                { name = 'nvim_lsp' },
+                { name = 'luasnip' },
                 { name = 'nvim_lsp_signature_help' },
                 { name = 'nvim_lua' },
-                { name = "path" },
+                { name = 'path' },
             }, {
-                { name = "buffer" },
+                { name = 'buffer' },
             }),
             formatting = {
                 format = function(_, item)
-                    local icons = require("lazyvim.config").icons.kinds
+                    local icons = require('lazyvim.config').icons.kinds
                     if icons[item.kind] then
                         item.kind = icons[item.kind] .. item.kind
                     end
@@ -75,7 +75,7 @@ return {
         for _, source in ipairs(opts.sources) do
             source.group_index = source.group_index or 1
         end
-        local cmp = require("cmp")
+        local cmp = require('cmp')
         cmp.setup(opts)
 
         cmp.setup.filetype('gitcommit', {
@@ -87,33 +87,5 @@ return {
         })
 
         require('cmp_git').setup()
-
-        -- cmp.setup.cmdline({ '/', '?'}, {
-        --     mapping = cmp.mapping.preset.cmdline(),
-        --     sources = cmp.config.sources({
-        --         { name = 'nvim_lsp_document_symbol' },
-        --         { name = 'buffer' }
-        --     }),
-        --     view = {
-        --         entries = {
-        --             name = 'custom',
-        --             selection_order = 'top_down'
-        --         }
-        --     }
-        -- })
-        --
-        -- cmp.setup.cmdline(':', {
-        --     view = {
-        --         entries = {
-        --             name = 'custom',
-        --             selection_order = 'top_down'
-        --         }
-        --     },
-        --     mapping = cmp.mapping.preset.cmdline(),
-        --     sources = cmp.config.sources({
-        --         { name = 'async_path' },
-        --         { name = 'cmdline' }
-        --     })
-        -- })
     end,
 }

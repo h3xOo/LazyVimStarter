@@ -70,27 +70,27 @@ return {
         { '<leader>gs', false },
         { ';t', function ()
             require('telescope.builtin').help_tags()
-        end },
+        end, desc = 'Telescope help tags' },
         { ';;', function ()
             require('telescope.builtin').resume()
-        end },
+        end, desc = 'Telescope resume' },
         { ';e', function ()
             require('telescope.builtin').diagnostics()
-        end },
+        end, desc = 'Telescope diagnostics' },
         { ';gs', function ()
             require('telescope.builtin').git_status()
-        end },
+        end, desc = 'Telescope git status' },
         { ';gc', function ()
             require('telescope.builtin').git_commits()
-        end },
+        end, desc = 'Telescope git commits' },
         { ';gb', function ()
             require('telescope.builtin').git_branches()
-        end },
+        end, desc = 'Telescope git branches' },
         { '\\\\', function ()
             require('telescope.builtin').buffers()
-        end },
-        { ';f', find_files_from_project_git_root },
-        { ';r', live_grep_from_project_git_root },
+        end, desc = 'Telescope buffers' },
+        { ';f', find_files_from_project_git_root, desc = 'Telescope find files' },
+        { ';r', live_grep_from_project_git_root, desc = 'Telescope live grep' },
         { '<leader>sf', function ()
             local telescope = require('telescope')
 
@@ -120,24 +120,21 @@ return {
         local fb_actions = require('telescope').extensions.file_browser.actions
         opts.extensions = {
             file_browser = {
-                theme = "dropdown",
-                -- disables netrw and use telescope-file-browser in its place
+                theme = 'dropdown',
                 hijack_netrw = true,
                 mappings = {
-                    -- your custom insert mode mappings
-                    ["n"] = {
-                        -- your custom normal mode mappings
-                        ["N"] = fb_actions.create,
-                        ["h"] = fb_actions.goto_parent_dir,
-                        ["/"] = function()
-                            vim.cmd("startinsert")
+                    ['n'] = {
+                        ['N'] = fb_actions.create,
+                        ['h'] = fb_actions.goto_parent_dir,
+                        ['/'] = function()
+                            vim.cmd('startinsert')
                         end,
-                        ["<C-u>"] = function(prompt_bufnr)
+                        ['<C-u>'] = function(prompt_bufnr)
                             for _ = 1, 10 do
                                 actions.move_selection_previous(prompt_bufnr)
                             end
                         end,
-                        ["<C-d>"] = function(prompt_bufnr)
+                        ['<C-d>'] = function(prompt_bufnr)
                             for _ = 1, 10 do
                                 actions.move_selection_next(prompt_bufnr)
                             end
@@ -147,7 +144,7 @@ return {
             },
         }
         telescope.setup(opts)
-        telescope.load_extension("fzy_native")
-        telescope.load_extension("file_browser")
+        telescope.load_extension('fzy_native')
+        telescope.load_extension('file_browser')
     end
 }

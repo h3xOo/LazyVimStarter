@@ -1,6 +1,6 @@
 return {
     "p00f/clangd_extensions.nvim",
     keys = {
-        { 'gch', '<Cmd>ClangdSwitchSourceHeader<CR>', silent = true, noremap = true }
+        { 'gch', '<Cmd>ClangdSwitchSourceHeader<CR>', silent = true, noremap = true, desc = 'Clangd switch source header' }
     },
 }

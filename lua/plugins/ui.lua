@@ -1,6 +1,6 @@
 return {
     {
-        "folke/noice.nvim",
+        'folke/noice.nvim',
         opts = function(_, opts)
             opts.presets.lsp_doc_border = true
         end,
@@ -10,7 +10,7 @@ return {
         event = 'VeryLazy',
         opts = function (_, opts)
             opts.sections.lualine_y = {
-                { "progress", padding = { left = 1, right = 1 } },
+                { 'progress', padding = { left = 1, right = 1 } },
             }
             opts.sections.lualine_z = { 'location' }
         end
