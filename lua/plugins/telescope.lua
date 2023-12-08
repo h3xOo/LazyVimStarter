@@ -1,4 +1,5 @@
 local is_inside_work_tree = {}
+local Util = require('lazyvim.util')
 
 local function live_grep_from_project_git_root()
     local function is_git_repo()
@@ -55,14 +56,24 @@ local function find_files_from_project_git_root()
 end
 
 return {
-    "telescope.nvim",
+    'telescope.nvim',
     dependencies = {
         {
-        "nvim-telescope/telescope-fzy-native.nvim",
-            build = "make -C deps/fzy-lua-native",
+            'nvim-telescope/telescope-fzy-native.nvim',
+            build = 'make -C deps/fzy-lua-native',
+            config = function ()
+                Util.on_load('telescope.nvim', function ()
+                    require('telescope').load_extension('fzy_native')
+                end)
+            end,
         },
         {
-            'nvim-telescope/telescope-file-browser.nvim'
+            'nvim-telescope/telescope-file-browser.nvim',
+            config = function ()
+                Util.on_load('telescope.nvim', function ()
+                    require('telescope').load_extension('file_browser')
+                end)
+            end
         },
     },
 
@@ -144,7 +155,5 @@ return {
             },
         }
         telescope.setup(opts)
-        telescope.load_extension('fzy_native')
-        telescope.load_extension('file_browser')
     end
 }
