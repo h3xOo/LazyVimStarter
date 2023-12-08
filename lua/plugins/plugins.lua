@@ -8,12 +8,12 @@ return {
         end,
     },
     {
-        "lervag/vimtex",
+        'lervag/vimtex',
         lazy = true,
         ft = 'tex',
         config = function()
-            vim.g.vimtex_mappings_disable = { ["n"] = { "K" } }
-            vim.g.vimtex_quickfix_method = vim.fn.executable("pplatex") == 1 and "pplatex" or "latexlog"
+            vim.g.vimtex_mappings_disable = { ['n'] = { 'K' } }
+            vim.g.vimtex_quickfix_method = vim.fn.executable('pplatex') == 1 and 'pplatex' or 'latexlog'
             vim.g.tex_flavor = 'latex'
             vim.g.vimtex_view_method = 'zathura'
             vim.g.vimtex_compiler_method = 'latexmk'
@@ -23,15 +23,15 @@ return {
     },
     'ggandor/lightspeed.nvim',
     {
-        "akinsho/bufferline.nvim",
-        event = "VeryLazy",
+        'akinsho/bufferline.nvim',
+        event = 'VeryLazy',
         keys = {
-            { "<Tab>", "<Cmd>BufferLineCycleNext<CR>", desc = "Next tab" },
-            { "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", desc = "Prev tab" },
+            { '<Tab>', '<Cmd>BufferLineCycleNext<CR>', desc = 'Next tab' },
+            { '<S-Tab>', '<Cmd>BufferLineCyclePrev<CR>', desc = 'Prev tab' },
         },
         opts = {
             options = {
-                mode = "tabs",
+                mode = 'tabs',
                 show_buffer_close_icons = false,
                 show_close_icon = false,
             },

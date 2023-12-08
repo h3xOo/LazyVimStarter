@@ -1,12 +1,12 @@
 return {
     {
-        "rcarriga/nvim-notify", enabled = false
+        'rcarriga/nvim-notify', enabled = false
     },
     {
-        "williamboman/mason.nvim", enabled = false
+        'williamboman/mason.nvim', enabled = false
     },
     {
-        "williamboman/mason-lspconfig.nvim", enabled = false
+        'williamboman/mason-lspconfig.nvim', enabled = false
     },
     {
         'RRethy/vim-illuminate', enabled = false
@@ -21,7 +21,7 @@ return {
         'folke/flash.nvim', enabled = false
     },
     {
-        "nvim-treesitter/nvim-treesitter-context", enabled = false
+        'nvim-treesitter/nvim-treesitter-context', enabled = false
     },
     {
         'echanovski/mini.pairs', enabled = false
