@@ -43,7 +43,7 @@ return {
         { 'gf', '<Cmd>Lspsaga finder<CR>', noremap = true, silent = true, desc = 'Lspsaga finder' },
         { 'gd', '<Cmd>Lspsaga goto_definition<CR>', noremap = true, silent = true, desc = 'Goto definition' },
         { mode = { 'n', 'v' }, '<Leader>ca', '<Cmd>Lspsaga code_action<CR>', noremap = true, silent = true, desc = 'Code action' },
-        { 'gr', '<Cmd>Lspsaga rename<CR>', noremap = true, silent = true, 'Rename' },
+        { 'gr', '<Cmd>Lspsaga rename<CR>', noremap = true, silent = true, desc = 'Rename' },
         { '<leader>sl', '<Cmd>Lspsaga show_line_diagnostics<CR>', noremap = true, silent = true, desc = 'Show line diagnostics' },
         { '<leader>sc', '<Cmd>Lspsaga show_cursor_diagnostics<CR>', noremap = true, silent = true, desc = 'Show cursor diagnostics' },
         { 'K', '<Cmd>Lspsaga hover_doc<CR>', noremap = true, silent = true, desc = 'Hover' },
