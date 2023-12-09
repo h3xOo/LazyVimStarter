@@ -32,4 +32,7 @@ return {
     {
         'nvimdev/dashboard-nvim', enabled = false
     },
+    {
+        'rafamdriz/friendly-snippets', enabled = false
+    },
 }
